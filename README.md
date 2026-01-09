@@ -1,4 +1,4 @@
-#PATIENT HEALTH FORM
+# **PATIENT HEALTH FORM**
 
 **Overview:**
 The Patient Health Form application allows patients to securely submit personal and health-related information online.
@@ -14,6 +14,7 @@ CSS
 JavaScript
 
 **Project Setup:**
+git clone:https://github.com/Ashminita28/patient-form
 
 
 **Live Demo:**
