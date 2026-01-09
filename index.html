@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>patient health form</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="main">
+        <!-- HOSPITAL LOGO AND NAME -->
+        <div class="logo-box">
+            <div>
+                <img src="hospital logo.png" alt="Logo" class="logo">
+                <h3>PATIENT HEALTH FORM</h3>
+            </div>
+        </div>
+
+        <!-- FORM STRUCTURE -->
+        <div class="whole-form">
+            <form id="patientForm">
+                <!-- FIRST FORM FOR PERSONAL DETAILS -->
+                <div class="first form">
+                    <div class="personal details">
+                        <span class="title">Personal Details</span>
+
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>*Full Name</label>
+                                <input type="text" id="fullName" placeholder="Enter your name"  />
+                                <span class="error" id="errorName"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label>*Date of Birth</label>
+                                <input type="date" id="dob" placeholder="Enter birth date"  />
+                                <span class="error" id="errorDob"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label>*Email</label>
+                                <input type="email" id="email" placeholder="Enter your email"  />
+                                <span class="error" id="errorEmail"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label>*Phone Number</label>
+                                <input type="number" id="phone" placeholder="Enter phone number" maxlength=10  />
+                                <span class="error" id="errorPhone"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="gender">*Gender</label>
+                                <select id="gender" >
+                                    <option value="">select option</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                                <span class="error" id="errorGender"></span>
+                            </div>
+
+                            <div class="input-field all">
+                                <label>*Address</label>
+                                <textarea id="address" placeholder="Enter your address" ></textarea>
+                                <span class="error" id="errorAddress"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECOND FORM FOR HEALTH DETAILS -->
+
+                <div class="second form">
+                    <div class="health details">
+                        <span class="title">Health Details</span>
+                        <div class="fields">
+                            <div class="input-field">
+                                <label for="height">*Height:</label>
+                                <input type="number" id="height" placeholder="Enter height in cm" />
+                                <span class="error" id="errorHeight"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="weight">*Weight:</label>
+                                <input type="number" id="weight" placeholder="Enter your weight" />
+                                <span class="error" id="errorWeight"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label>Blood Pressure(Optional)</label>
+                                <input type="text" id="bloodPressure" placeholder="Enter blood pressure" />
+                            </div>
+
+                            <div class="input-field">
+                                <label>Blood Tempreture(Optional)</label>
+                                <input type="number" id="bloodTempreture" placeholder="Enter body tempreture in celsius" />
+                            </div>
+
+                            <div class="input-field">
+                                <label for="bloodType">*Blood Type</label>
+                                <select id="bloodType">
+                                    <option value="">Select Option</option>
+                                    <option value="a+">A +ve</option>
+                                    <option value="a-">A -ve</option>
+                                    <option value="b+">B +ve</option>
+                                    <option value="b-">B -ve</option>
+                                    <option value="ab+">AB +ve</option>
+                                    <option value="ab-">AB -ve</option>
+                                    <option value="o+">O +ve</option>
+                                    <option value="o-">O -ve</option>
+                                </select>
+                                <span class="error" id="errorBlood"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="dietType">Diet Type(Optional)</label>
+                                <select id="dietType">
+                                    <option value="select">Select Option</option>
+                                    <option value="Mediterranean">Mediterranean Diet</option>
+                                    <option value="DASH">DASH Diet</option>
+                                    <option value="Plant-Based">
+                                        Plant-Based and Vegan Diets
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="allergies">Allergies(Optional)</label>
+                                <input type="text" id="allergies" placeholder="Mention your allergies" />
+                            </div>
+
+                            <div class="input-field">
+                                <label for="sleepHours">Sleep Hours(Optional)</label>
+                                <input type="number" id="sleepHours" placeholder="Mention sleep hours" />
+                            </div>
+
+                            <div class="input-field all">
+                                <label>*Chronic Diseases</label>
+                                <div class="checkbox-group">
+                                    <label><input type="checkbox"  name="disease" value="heart"/>Heart Disease</label>
+                                    <label><input type="checkbox" name="disease"  value="diabetes"/>Diabetes</label>
+                                    <lable for="asthma"><input type="checkbox" />Asthma</lable>
+                                    <label><input type="checkbox" name="disease" value="cancer"/>Cancer</label>
+                                    <label><input type="checkbox"  name="disease" value="arithrities"/>Arthritis</label>
+                                    <label><input type="checkbox"  name="disease" value="hypertension"/>Hypertension</label>
+                                    <span class="error" id="errorDisease"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-field all">
+                                <label>*Exercise Frequency</label>
+                                <div class="checkbox-group">
+                                    <label ><input  type="radio" name="exercise" value="daily" />Daily</label>
+                                    <label ><input  type="radio" name="exercise" value="weekly"/>3-4 times/week</label>
+                                    <!-- <lable><input type="radio" />Occasionally</lable> -->
+                                    <label ><input  type="radio" name="exercise" value="never"/>Never</label>
+                                    <span class="error" id="errorExercise"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-field all">
+                                <label for="medication">Current Medications(Optional)</label>
+                                <textarea id="medication" placeholder="Mention your current medications"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- THIRD FORM FOR PRIVACY -->
+
+                <div class="third form">
+                    <span class="title">Privacy Agreement</span>
+                    <div class="checkbox-group ">
+                        <label for="privacy"><input id="privacy" type="checkbox"  />I agree to the privacy
+                            policy</label>
+                        <span class="error" id="errorPrivacy"></span>
+                    </div>
+                </div>
+
+                <div class="finalSubmit">
+                    <button id="submitBtn" type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="validation.js"></script>
+</body>
+
+</html>
