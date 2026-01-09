@@ -224,4 +224,5 @@ console.log(data);
 const stringifyData = JSON.stringify(data);
 localStorage.setItem("patientForm", stringifyData);
 alert("Form submitted successfully");
+document.getElementById("patientForm").reset();
 });
