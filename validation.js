@@ -22,35 +22,35 @@ document.getElementById("patientForm").addEventListener("submit", function (e) {
   let valid = true;
 
   // NAME CONDITIONS
-  let nameError = document.getElementById("errorName");
-  if(fullName.length === 0) {
-    nameError.textContent = "*Name is required";
-    valid = false;
-  } 
-  else {
-    document.getElementById("errorName").textContent = "";
-  }
-  if(fullName.length < 3) {
-    nameError.textContent = "*Name must have at least 3 characters";
-    valid = false;
-  } 
-  else {
-    document.getElementById("errorName").textContent = "";
-  }
-  if(/[0-9]/.test(fullName)) {
-    nameError.textContent = "*Name cannot contain numbers";
-    valid = false; 
-  } 
-  else {
-    document.getElementById("errorName").textContent = "";
-  }
-  if (/[^a-zA-Z]/.test(fullName)) {
-    nameError.textContent = "*Name cannot contain special characters";
-    valid = false; 
-  } 
-  else {
-    document.getElementById("errorName").textContent = "";
-  }
+  // let nameError = document.getElementById("errorName");
+  // if(fullName.length ===0) {
+  //   nameError.textContent = " *Name is required";
+  //   valid = false;
+  // } 
+  // else {
+  //   nameError.textContent = "";
+  // }
+  // if(fullName.length < 3) {
+  //   nameError.textContent = "*Name must have at least 3 characters";
+  //   valid = false;
+  // } 
+  // else {
+  //   nameError.textContent = "";
+  // }
+  // if(/[0-9]/.test(fullName)) {
+  //   nameError.textContent = "*Name cannot contain numbers";
+  //   valid = false; 
+  // } 
+  // else {
+  //   nameError.textContent = "";
+  // }
+  // if (/[^a-zA-Z]/.test(fullName)) {
+  //   nameError.textContent = "*Name cannot contain special characters";
+  //   valid = false; 
+  // } 
+  // else {
+  //   nameError.textContent = "";
+  // }
 
   // DATE OF BIRTH CONDITIONS
   let dobError = document.getElementById("errorDob");
@@ -71,9 +71,10 @@ document.getElementById("patientForm").addEventListener("submit", function (e) {
   if (age < 18) {
     dobError.textContent = "*Age should be above 18";
     valid = false;
-  } else {
-    nameError.textContent = "";
-  }
+  } 
+  // else {
+  //   dobError.textContent = "";
+  // }
   
 
   // EMAIL CONDITIONS
