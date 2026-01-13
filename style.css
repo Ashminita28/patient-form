@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0px;
@@ -10,11 +11,26 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#96a9db;
     font-family: Arial, sans-serif;
     background-position: center;
 }
 
+.full{
+    /* border: 3px solid red; */
+    display: flex;
+    width: 100%;
+    background:white;
+    margin: 10px;
+    /* height: 400px; */
+}
+
+.main{
+    /* border: 3px solid red; */
+    margin: 5px;
+    width: 50%;
+    height: 100%;
+    box-sizing:border-box;
+}
 
 /* HOSPITAL LOGO AND NAME CSS */
 .logo-box{
@@ -25,7 +41,10 @@ body{
     padding: 10px;
     margin-bottom: 0px;
 }
-
+.logo-title{
+    display: flex;
+    gap: 20px;
+}
 .logo{
     width:100px;
     height:100px;
@@ -38,6 +57,8 @@ body{
     font-size:24px ;
 }
 
+
+
 /* FORM CSS */
 
 .whole-form {
@@ -47,13 +68,13 @@ body{
 
 .form{
     background:#eef6ff;
-    padding:25px;
-    margin:10px;
-    width:900px;
+    padding:18px;
+    /* margin:10px; */
+    width:100%;
     border-radius:6px;
     flex: 1;
-    border-left: 3px solid #18203b;
-    border-bottom: 3px solid #18203b;
+    border: 3px solid #18203b;
+    /* border-bottom: 3px solid #18203b; */
     margin-top: 0px;
 }
 
@@ -65,28 +86,31 @@ body{
     color:#18302b;
 }
 
+
 .fields{
     display:flex;
     flex-wrap:wrap;
-    gap:15px;
+    gap:5px;
+
 }
 
 .input-field{
     width:calc(100%/3 - 10px);
     display:flex;
     flex-direction:column;
+    margin: 0;
 }
 
 .input-field label{
     font-size:15px;
-    margin-bottom:5px;
+    margin-bottom:3px;
     color:#5e0c0c;
     font-weight: bold;
 }
 
 .input-field input, .input-field select{
     height:42px;
-    padding:0 12px;
+    padding:0 10px;
     font-size:14px;
     border-radius:5px;
     border:1px solid #aaa;
@@ -117,14 +141,14 @@ body{
 .checkbox-group{
     display:flex;
     flex-wrap:wrap;
-    gap:18px;
+    gap:15px;
     margin-top:8px;
 }
 
 .checkbox-group label{
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:5px;
     font-size:14px;
     color:#333;
     cursor:pointer;
@@ -194,9 +218,11 @@ body{
     margin-top:2px;
 }
 
+
+
 /* RESPONSIVE DESIGN */
 
-@media screen and (max-width:1024px){
+/* @media screen and (max-width:1024px){
     .form{
         width:90%;
         padding:20px;
@@ -256,4 +282,4 @@ body{
     h3{
         font-size: 18px;
     }
-}
+} */

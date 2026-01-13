@@ -1,67 +1,57 @@
+document.getElementById("fullName").addEventListener("input", validateName);
+document.getElementById("dob").addEventListener("change", validateDate);
+document.getElementById("email").addEventListener("input", validateEmail);
+document.getElementById("phone").addEventListener("input", validatePhone);
+document.getElementById("gender").addEventListener("change", validateGender);
+document.getElementById("address").addEventListener("input", validateAddress);
+document.getElementById("height").addEventListener("input", validateHeight);
+document.getElementById("weight").addEventListener("input", validateWeight);
 
-document.getElementById("patientForm").addEventListener("submit", function (e) {
-  console.log("enter the form ");
-  
-  e.preventDefault();
+// document.getElementById("bloodPressure").addEventListener("input",validateBloodpressure);
+// document.getElementById("bloodPressure").addEventListener("input",validateBloodtemp);
+document
+  .getElementById("bloodType")
+  .addEventListener("change", validateBloodtype);
+// document.getElementById("dietType").addEventListener("change",validateDiettype);
+document.getElementById("allergies").addEventListener("input",validateAllergy);
+document.getElementById("sleepHours").addEventListener("input",validateSleephours);
 
-  const fullName = document.getElementById("fullName").value.trim();
-  const dob = document.getElementById("dob").value;
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const address = document.getElementById("address").value.trim();
-  const gender = document.getElementById("gender").value;
-  const height = document.getElementById("height").value;
-  const weight = document.getElementById("weight").value;
-  const bloodType = document.getElementById("bloodType").value;
-  const chronicDisease = document.querySelectorAll(
-    'input[name="disease"]:checked'
-  );
-  const exercise = document.querySelector('input[name="exercise"]:checked');
-  const privacyAgreement = document.getElementById("privacy").checked;
+document.getElementsByName("disease").forEach((c) => {
+  c.addEventListener("change", validateDisease);
+});
+document.getElementsByName("exercise").forEach((r) => {
+  r.addEventListener("change", validateExercise);
+});
 
-  let valid = true;
+// document.getElementById("medication").addEventListener("input",validateCurrentmedication);
+document.getElementById("privacy").addEventListener("change", validatePrivacy);
 
-  // NAME CONDITIONS
-  // let nameError = document.getElementById("errorName");
-  // if(fullName.length ===0) {
-  //   nameError.textContent = " *Name is required";
-  //   valid = false;
-  // } 
-  // else {
-  //   nameError.textContent = "";
-  // }
-  // if(fullName.length < 3) {
-  //   nameError.textContent = "*Name must have at least 3 characters";
-  //   valid = false;
-  // } 
-  // else {
-  //   nameError.textContent = "";
-  // }
-  // if(/[0-9]/.test(fullName)) {
-  //   nameError.textContent = "*Name cannot contain numbers";
-  //   valid = false; 
-  // } 
-  // else {
-  //   nameError.textContent = "";
-  // }
-  // if (/[^a-zA-Z]/.test(fullName)) {
-  //   nameError.textContent = "*Name cannot contain special characters";
-  //   valid = false; 
-  // } 
-  // else {
-  //   nameError.textContent = "";
-  // }
-
-  // DATE OF BIRTH CONDITIONS
-  let dobError = document.getElementById("errorDob");
-  const currentDate = new Date();
-  if (!dob) {
-    dobError.textContent = "*date of Birth required";
-    valid = false;
-  } else {
-    dobError.textContent = "";
+function validateName() {
+  const val = fullName.value.trim();
+  const nameError = document.getElementById("errorName");
+  if (val === "") {
+    nameError.textContent = " *Name is required";
+    return false;
   }
-  const dobDate=new Date(dob);
+  if (/[^A-Za-z]+$/.test(val)) {
+    nameError.textContent = "*Letters only";
+    return false;
+  }
+  nameError.textContent = "";
+  return true;
+}
+
+function validateDate() {
+  let dobError = document.getElementById("errorDob");
+  const today = new Date().toISOString().split("T")[0];
+  dob.max = today;
+  const currentDate = new Date();
+  const dval = dob.value;
+  if (!dval) {
+    dobError.textContent = "*date of Birth required";
+    return false;
+  }
+  const dobDate = new Date(dval);
   let age = currentDate.getFullYear() - dobDate.getFullYear();
   const month = currentDate.getMonth() - dobDate.getMonth();
 
@@ -70,159 +60,169 @@ document.getElementById("patientForm").addEventListener("submit", function (e) {
   }
   if (age < 18) {
     dobError.textContent = "*Age should be above 18";
-    valid = false;
-  } 
-  // else {
-  //   dobError.textContent = "";
-  // }
-  
-
-  // EMAIL CONDITIONS
-
-  let emailError = document.getElementById("errorEmail");
-  const ePattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!email) {
-    emailError.textContent = "* Email required";
-    valid = false;
-  } 
-  else {
-    emailError.textContent = "";
-  } 
-  if (!ePattern.test(email)) {
-    emailError.textContent = "*Invalid email format";
-    valid = false;
-  } else {
-    emailError.textContent = "";
+    return false;
   }
 
-  // GENDER 
+  dobError.textContent = "";
+  return true;
+}
+
+function validateEmail() {
+  let emailError = document.getElementById("errorEmail");
+  const ePattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emval = email.value.trim();
+
+  if (!emval) {
+    emailError.textContent = "* Email required";
+    return false;
+  }
+  if (!ePattern.test(emval)) {
+    emailError.textContent = "*Invalid email format";
+    return false;
+  }
+  emailError.textContent = "";
+  return true;
+}
+
+function validatePhone() {
+  let phoneError = document.getElementById("errorPhone");
+  const pval = phone.value.trim();
+  if(pval.length>10){
+    pval=pval.slice(0,10);
+  }
+  if (pval === "") {
+    phoneError.textContent = "*Phone number required";
+    return false;
+  }
+  // if (!/^d{10}$/.test(phone)) {
+  //   phoneError.textContent = "*digits only";
+  //   return false;
+  // }
+  phoneError.textContent = "";
+  return true;
+}
+
+function validateAddress() {
+  let addressError = document.getElementById("errorAddress");
+  const aval = address.value.trim();
+  if (!aval) {
+    addressError.textContent = "Address required";
+    return false;
+  }
+  addressError.textContent = "";
+  return true;
+}
+
+function validateGender() {
   let genderError = document.getElementById("errorGender");
   if (gender === "") {
     genderError.textContent = "*gender required";
-    valid = false;
-  } else {
-    genderError.textContent = "";
+    return false;
   }
+  genderError.textContent = "";
+  return true;
+}
 
-  // PHONE NUMBER C0NDITIONS
-  let phoneError = document.getElementById("errorPhone");
-  if (phone === "") {
-    phoneError.textContent = "*Phone number required";
-    valid = false;
-  } else {
-    phoneError.textContent = "";
-  }
-  if (!/^[0-9]{10}$/.test(phone)) {
-    phoneError.textContent = "*Enter 10 digit number";
-    valid = false;   
-  } else {
-    phoneError.textContent = "";
-  }
-
-
-  // ADDRESS
-  let addressError = document.getElementById("errorAddress");
-    if (!address) {
-      addressError.textContent = "Address required";
-      valid = false;
-    }else{
-      addressError.textContent = "";
-    }
-  //   HEIGHT CONDITIONS
+function validateHeight() {
   let heightError = document.getElementById("errorHeight");
-  if (!height) {
+  const hval = height.value;
+  if (hval == "") {
     heightError.textContent = "Height required";
-    valid = false;
-  } else {
-    heightError.textContent = "";
+    return false;
   }
-  if (height < 100 || height > 250) {
+  if (hval < 100 || hval > 250) {
     heightError.textContent = "* height must be between 100 to 250";
-    valid = false;
-  } else {
-    heightError.textContent = "";
+    return false;
   }
+  heightError.textContent = "";
+  return true;
+}
 
-  //   WEIGHT CONDITIONS
+function validateWeight() {
   let weightError = document.getElementById("errorWeight");
-  if (!weight) {
+  const wval = weight.value;
+  if (!wval) {
     weightError.textContent = "Weight required";
-    valid = false;
-  } else {
-    weightError.textContent = "";
+    return false;
   }
-  if (weight < 30 || weight > 200) {
+  if (wval < 30 || wval > 200) {
     weightError.textContent = "* weigth must be between 30 to 200";
-    valid = false;
-  } else {
-    weightError.textContent = "";
+    return false;
   }
 
-  // PRIVACY CONDITIONS
-  const privacyError = document.getElementById("errorPrivacy");
-  if (!privacyAgreement) {
-    alert("You must agree to the privacy policy");
-    valid = false;
-  } else {
-    privacyError.textContent = "";
-  }
+  weightError.textContent = "";
+  return true;
+}
 
-
-  // CHRONIC DISEASES
-  let diseaseError = document.getElementById("errorDisease");
-  if (chronicDisease.length === 0) {
-    diseaseError.textContent = "*select at least one";
-    valid = false;
+function validateBloodtype() {
+  let bloodError = document.getElementById("errorBlood");
+  if (bloodType === "") {
+    bloodError.textContent = "*Select blood group";
+    return false;
   }
-  else {
-    diseaseError.textContent = "";
-  }
-
-  // EXERCISE
-  let exerciseError = document.getElementById("errorExercise");
-  if (!exercise) {
-    exerciseError.textContent = "*select one";
-    valid = false;
-    
-  } else { 
-     exerciseError.textContent = "";
-  }
- 
-
-// BLOOD TYPE CONDITIONS
-let bloodError = document.getElementById("errorBlood");
-if (bloodType === "") {
-  bloodError.textContent = "*Select blood group";
-  valid = false;
-} else {
   bloodError.textContent = "";
+  return true;
 }
 
-if (!valid) {
-  alert("Please correct the highlighted error before submitting the form");
-  e.preventDefault();
-  return;
+// function validateDiettype(){
+  
+// }
+
+function validateAllergy(){
+   
+}
+function validateSleephours(){
+    
+}
+function validateDisease() {
+  let diseaseError = document.getElementById("errorDisease");
+  const checks = document.getElementsByName("disease");
+  let checked = 0;
+  checks.forEach((r) => {
+    if (r.checked) checked++;
+  });
+  if (checked === 0) {
+    diseaseError.textContent = "select at least one";
+    return false;
+  }
+  diseaseError.textContent = "";
+  return true;
+}
+function validateExercise() {
+  let exerciseError = document.getElementById("errorExercise");
+  const radios = document.getElementsByName("exercise");
+  let selected = false;
+  radios.forEach((r) => {
+    if (r.checked) selected = true;
+  });
+  if (!selected) {
+    exerciseError.textContent = "select at least one";
+    return false;
+  }
+  exerciseError.textContent = "";
+  return true;
 }
 
-const data = {};
+// function validateCurrentmedication(){
 
-data.fullName = fullName;
-data.dob = dob;
-data.email = email;
-data.phone = phone;
-data.gender = gender;
-data.height = height;
-data.weight=weight;
-data.bloodType =bloodType ;
-data.chronicDisease =chronicDisease ;
-data.exercise=exercise;
-data. privacyAgreement= privacyAgreement;
+// }
 
+function validatePrivacy() {
+  let privacyError = document.getElementById("errorPrivacy");
+  if (!privacy.checked) {
+    alert("You must agree to the privacy policy");
+    return false;
+  }
+  privacyError.textContent = "";
+  return true;
+}
+
+const data={};
+data.fullName=fullName;
 
 console.log(data);
-const stringifyData = JSON.stringify(data);
-localStorage.setItem("patientForm", stringifyData);
-alert("Form submitted successfully");
-document.getElementById("patientForm").reset();
-});
+
+function validateAll() {
+  return (validateName() && validateDate() && validateAddress() && validateEmail() && validatePhone() && validateGender() &&  validateHeight() && validateWeight()
+&& validateBloodtype() && validateDisease() && validateExercise() && validatePrivacy());
+}
