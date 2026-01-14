@@ -17,6 +17,8 @@ body{
     display: flex;
     width: 100%;
     margin: 10px;
+    gap: 10px;
+    
 }
 
 .main{
@@ -28,6 +30,7 @@ body{
     0 10px 40px rgba(0,0,0,0.6),
     0 0 0 1px rgba(0,0,0,0,02);
     overflow:hidden; 
+    border:5px solid rgb(65, 26, 26);
 }
 
 /* HOSPITAL LOGO AND NAME CSS */
@@ -218,12 +221,6 @@ textarea{
 }
 
 
-
-
-
-
-
-
 /* RESPONSIVE DESIGN */
 
 @media(max-width:1024px){
@@ -251,7 +248,6 @@ textarea{
     padding:18px 20px;
 
     }
-
 }
 
 @media(max-width:768px){

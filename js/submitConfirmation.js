@@ -6,3 +6,5 @@ okbtn.addEventListener('click',function(){
       successMsg.close();
       document.getElementById('patientForm').reset ();
 });
+
+

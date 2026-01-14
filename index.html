@@ -1,270 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>patient health form</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/table.css" />
+    <link rel="stylesheet" href="css/submitConfirmation.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>patient health form</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/table.css" />
-  <link rel="stylesheet" href="css/submitConfirmation.css" />
-</head>
-
-<body>
-  <div class="full-content" id="full-page">
-
-    <div class="main">
-
-      <!-- HOSPITAL LOGO AND NAME -->
-      <div class="logo-box">
-        <h1>Patient Health Form</h1>
-      </div>
-
-      <!-- FORM STRUCTURE -->
-      
-      <form class="form-content" id="patientForm" method="dialog">
-
-        <!-- FIRST FORM FOR PERSONAL DETAILS -->
-        <div class="form" id="formSection">
-          <h2 class="section-title">Personal Details</h2>
-          <div class="info-card"><strong>Important:</strong>All fields marked with an asterik (*) are required.</div>
-          <div class="fields">
-            <div class="input-field">
-              <label>*Full Name</label>
-              <input type="text" id="fullName" name="fullName" placeholder="Enter your name" />
-              <span class="error" id="errorName"></span>
-            </div>
-            <div class="input-field">
-              <label>*Date of Birth</label>
-              <input type="date" id="dob" name="dob" placeholder="Enter birth date" />
-              <span class="error" id="errorDob"></span>
-            </div>
-          </div>
-
-          <div class="fields">
-            <div class="input-field">
-              <label>*Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" />
-              <span class="error" id="errorEmail"></span>
-            </div>
-            <div class="input-field">
-              <label>*Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="Enter phone number" maxlength="10" />
-              <span class="error" id="errorPhone"></span>
-            </div>
-          </div>
-
-        
-
-          <div class="fields full">
-            <div class="input-field">
-              <label>*Address</label>
-              <textarea id="address" name="address" placeholder="Enter your address"></textarea>
-              <span class="error" id="errorAddress"></span>
-            </div>
-          </div>
+  <body>
+    <div class="full-content" id="full-page">
+      <div class="main">
+        <!-- HOSPITAL LOGO AND NAME -->
+        <div class="logo-box">
+          <h1>Patient Health Form</h1>
         </div>
 
+        <!-- FORM STRUCTURE -->
 
-        <!-- SECOND FORM FOR HEALTH DETAILS -->
-
-        <div class="form">
-        <h2 class="section-title">Health Details</h2>
-          <div class="fields">
-            <div class="input-field">
-              <label for="height">*Height:</label>
-              <input type="number" id="height" name="height" placeholder="Enter height in cm" />
-              <span class="error" id="errorHeight"></span>
+        <form class="form-content" id="patientForm" method="dialog">
+          <!-- FIRST FORM FOR PERSONAL DETAILS -->
+          <div class="form" id="formSection">
+            <h2 class="section-title">Personal Details</h2>
+            <div class="info-card">
+              <strong>Important:</strong>All fields marked with an asterik (*)
+              are required.
             </div>
-
-            <div class="input-field">
-              <label for="weight">*Weight:</label>
-              <input type="number" id="weight" name="weight" placeholder="Enter your weight" />
-              <span class="error" id="errorWeight"></span>
-            </div>
-
-            </div>
-           
             <div class="fields">
               <div class="input-field">
-              <label>Blood Pressure(Optional)</label>
-              <input type="number"  id="bloodPressure" name="bloodPressure"
-                placeholder="Enter blood pressure" />
-                <span class="error" id="errorPressure"></span>
-            </div>
-
-            <div class="input-field">
-              <label>Blood Tempreture(Optional)</label>
-              <input type="number" step="0.01" id="bloodTempreture" name="bloodTempreture"
-                placeholder="Enter body tempreture in celsius" />
-              <span class="error" id="errorTemp"></span>
-            </div>
-
-            </div>
-            
-            <div class="fields">
+                <label>*Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your name"
+                />
+                <span class="error" id="errorName"></span>
+              </div>
               <div class="input-field">
-              <label for="bloodType">*Blood Type</label>
-              <select id="bloodType" name="bloodType">
-                <option value="">Select Option</option>
-                <option value="a+">A +ve</option>
-                <option value="a-">A -ve</option>
-                <option value="b+">B +ve</option>
-                <option value="b-">B -ve</option>
-                <option value="ab+">AB +ve</option>
-                <option value="ab-">AB -ve</option>
-                <option value="o+">O +ve</option>
-                <option value="o-">O -ve</option>
-              </select>
-              <span class="error" id="errorBlood"></span>
-            </div>
-
-            <div class="input-field">
-              <label for="dietType">Diet Type(Optional)</label>
-              <select id="dietType" name="dietType">
-                <option value="select">Select Option</option>
-                <option value="Mediterranean">Mediterranean Diet</option>
-                <option value="DASH">DASH Diet</option>
-                <option value="Plant-Based">
-                  Plant-Based and Vegan Diets
-                </option>
-              </select>
-              <span class="error" id="errorDiet"></span>
-            </div>
-
-            </div>
-
-            <div class="fields">
-              <div class="input-field">
-              <label for="allergies">Allergies(Optional)</label>
-              <input type="text" id="allergies" name="allergies" placeholder="Mention your allergies" />
-              <span class="error" id="errorAllergy"></span>
-            </div>
-
-            <div class="input-field">
-              <label for="sleepHours">Sleep Hours(Optional)</label>
-              <input type="number" id="sleepHours" name="sleepHours" placeholder="Mention sleep hours" />
-              <span class="error" id="errorSleep"></span>
-            </div>
-
-            </div>
-            
-
-            <div class="fields">
-              <div class="input-field ">
-              <label>*Chronic Diseases</label>
-              
-                <div class="checkbox-group">
-                  <input type="checkbox" name="disease" value="heart" />
-                <label>Heart</label>
-                <input type="checkbox" name="disease" value="diabetes" />
-                <label>Diabetes</label>
-
-
-                
-        
-                
-                  <input type="checkbox" name="disease" value="cancer" />
-                <label>Cancer</label>
-                <!-- <input type="checkbox" name="disease" value="arithrities" />
-                <label>Arthritis</label> -->
-                <input type="checkbox" name="disease" value="hypertension" />
-                <label>Hypertension</label>
-                
-                
-                <span class="error" id="errorDisease"></span>
+                <label>*Date of Birth</label>
+                <input
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  placeholder="Enter birth date"
+                />
+                <span class="error" id="errorDob"></span>
               </div>
             </div>
 
-            <div class="input-field ">
-              <label>*Exercise Frequency</label>
-              <div class="checkbox-group">
-                <label><input type="radio" name="exercise" value="daily" />Daily</label>
-                <label><input type="radio" name="exercise" value="weekly" />weekly</label>
-                <label><input type="radio" name="exercise" value="never" />Never</label>
-                <span class="error" id="errorExercise"></span>
+            <div class="fields">
+              <div class="input-field">
+                <label>*Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                />
+                <span class="error" id="errorEmail"></span>
               </div>
-            </div>
-
+              <div class="input-field">
+                <label>*Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter phone number"
+                  maxlength="10"
+                />
+                <span class="error" id="errorPhone"></span>
+              </div>
             </div>
 
             <div class="fields full">
               <div class="input-field">
-              <label for="medication">Current Medications(Optional)</label>
-              <textarea id="medication" name="medication" placeholder="Mention your current medications"></textarea>
-              <span class="error" id="errorMedication"></span>
+                <label>*Address</label>
+                <textarea
+                  id="address"
+                  name="address"
+                  placeholder="Enter your address"
+                ></textarea>
+                <span class="error" id="errorAddress"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECOND FORM FOR HEALTH DETAILS -->
+
+          <div class="form">
+            <h2 class="section-title">Health Details</h2>
+            <div class="fields">
+              <div class="input-field">
+                <label for="height">*Height:</label>
+                <input
+                  type="number"
+                  id="height"
+                  name="height"
+                  placeholder="Enter height in cm"
+                />
+                <span class="error" id="errorHeight"></span>
+              </div>
+
+              <div class="input-field">
+                <label for="weight">*Weight:</label>
+                <input
+                  type="number"
+                  id="weight"
+                  name="weight"
+                  placeholder="Enter your weight"
+                />
+                <span class="error" id="errorWeight"></span>
+              </div>
             </div>
 
+            <div class="fields">
+              <div class="input-field">
+                <label>Blood Pressure(Optional)</label>
+                <input
+                  type="number"
+                  id="bloodPressure"
+                  name="bloodPressure"
+                  placeholder="Enter blood pressure"
+                />
+                <span class="error" id="errorPressure"></span>
+              </div>
+
+              <div class="input-field">
+                <label>Blood Tempreture(Optional)</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  id="bloodTempreture"
+                  name="bloodTempreture"
+                  placeholder="Enter body tempreture in celsius"
+                />
+                <span class="error" id="errorTemp"></span>
+              </div>
             </div>
 
-            
-          
-        </div>
-    
+            <div class="fields">
+              <div class="input-field">
+                <label for="bloodType">*Blood Type</label>
+                <select id="bloodType" name="bloodType">
+                  <option value="">Select Option</option>
+                  <option value="a+">A +ve</option>
+                  <option value="a-">A -ve</option>
+                  <option value="b+">B +ve</option>
+                  <option value="b-">B -ve</option>
+                  <option value="ab+">AB +ve</option>
+                  <option value="ab-">AB -ve</option>
+                  <option value="o+">O +ve</option>
+                  <option value="o-">O -ve</option>
+                </select>
+                <span class="error" id="errorBlood"></span>
+              </div>
 
-    <!-- THIRD FORM FOR PRIVACY -->
+              <div class="input-field">
+                <label for="dietType">Diet Type(Optional)</label>
+                <select id="dietType" name="dietType">
+                  <option value="select">Select Option</option>
+                  <option value="Mediterranean">Mediterranean Diet</option>
+                  <option value="DASH">DASH Diet</option>
+                  <option value="Plant-Based">
+                    Plant-Based and Vegan Diets
+                  </option>
+                </select>
+                <span class="error" id="errorDiet"></span>
+              </div>
+            </div>
 
-    <div class="form submit-section">
+            <div class="fields">
+              <div class="input-field">
+                <label for="allergies">Allergies(Optional)</label>
+                <input
+                  type="text"
+                  id="allergies"
+                  name="allergies"
+                  placeholder="Mention your allergies"
+                />
+                <span class="error" id="errorAllergy"></span>
+              </div>
 
+              <div class="input-field">
+                <label for="sleepHours">Sleep Hours(Optional)</label>
+                <input
+                  type="number"
+                  id="sleepHours"
+                  name="sleepHours"
+                  placeholder="Mention sleep hours"
+                />
+                <span class="error" id="errorSleep"></span>
+              </div>
+            </div>
 
-      <h2 class="section-title">Privacy Agreement</h2>
-      <div class="checkbox-group">
-        <input type="checkbox" id="privacy">
-        <label for="privacy">I agree to the privacy policy</label>
-        <span class="error" id="errorPrivacy"></span>
+            <div class="fields">
+              <div class="input-field">
+                <label>*Chronic Diseases</label>
+
+                <div class="checkbox-group">
+                  <input type="checkbox" name="disease" value="heart" />
+                  <label>Heart</label>
+                  <input type="checkbox" name="disease" value="diabetes" />
+                  <label>Diabetes</label>
+
+                  <input type="checkbox" name="disease" value="cancer" />
+                  <label>Cancer</label>
+                  <input type="checkbox" name="disease" value="hypertension" />
+                  <label>Hypertension</label>
+
+                  <span class="error" id="errorDisease"></span>
+                </div>
+              </div>
+
+              <div class="input-field">
+                <label>*Exercise Frequency</label>
+                <div class="checkbox-group">
+                  <label
+                    ><input
+                      type="radio"
+                      name="exercise"
+                      value="daily"
+                    />Daily</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="exercise"
+                      value="weekly"
+                    />weekly</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="exercise"
+                      value="never"
+                    />Never</label
+                  >
+                  <span class="error" id="errorExercise"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="fields full">
+              <div class="input-field">
+                <label for="medication">Current Medications(Optional)</label>
+                <textarea
+                  id="medication"
+                  name="medication"
+                  placeholder="Mention your current medications"
+                ></textarea>
+                <span class="error" id="errorMedication"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- THIRD FORM FOR PRIVACY -->
+
+          <div class="form submit-section">
+            <h2 class="section-title">Privacy Agreement</h2>
+            <div class="checkbox-group">
+              <input type="checkbox" id="privacy" />
+              <label for="privacy">I agree to the privacy policy</label>
+              <span class="error" id="errorPrivacy"></span>
+            </div>
+            <button id="submitBtn" type="submit" class="btn">Submit</button>
+          </div>
+        </form>
       </div>
-      <button id="submitBtn" type="submit" class="btn">Submit</button>
-    </div>
-    </form>
-    </div>
-  
 
-  <!--TABLE TO STORE FORM DATA -->
-  <div class="tableData">
-    <div class="record-box">
-      <h1>Records</h1>
+      <!--TABLE TO STORE FORM DATA -->
+      <div class="tableData">
+        <div class="record-box">
+          <h1>Records</h1>
+        </div>
+        <div class="listing" id="tableSection">
+          <table class="list" id="fulltable">
+            <thead>
+              <tr>
+                <th>NAME</th>
+                <th>DOB</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>ADDRESS</th>
+                <th>HEIGHT</th>
+                <th>WEIGHT</th>
+                <th>BLOOD PRESSURE</th>
+                <th>BLOOD TEMPRATURE</th>
+                <th>BLOOD TYPE</th>
+                <th>DIET TYPE</th>
+                <th>ALLERGIES</th>
+                <th>SLEEP HOURS</th>
+                <th>DISEASE</th>
+                <th>EXERCISE</th>
+                <th>MEDICATION</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <div class="listing" id="tableSection">
-      <table class="list" id="fulltable">
-        <thead>
-          <tr>
-            <th>NAME</th>
-            <th>DOB</th>
-            <th>EMAIL</th>
-            <th>PHONE</th>
-            <th>ADDRESS</th>
-            <th>HEIGHT</th>
-            <th>WEIGHT</th>
-            <th>BLOOD PRESSURE</th>
-            <th>BLOOD TEMPRATURE</th>
-            <th>BLOOD TYPE</th>
-            <th>DIET TYPE</th>
-            <th>ALLERGIES</th>
-            <th>SLEEP HOURS</th>
-            <th>DISEASE</th>
-            <th>EXERCISE</th>
-            <th>MEDICATION</th>
-            <th>ACTIONS</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
-  </div>
 
-  <!-- SUCCESSFULL SUBMISSION MESSAGE PAGE -->
-  <dialog class="success_msg">
-    <div class="success_msg_container">
-      <h2 class="success_msg_head">FORM SUBMITTED SUCCESSFULLY!!</h2>
-      <p class="success_msg_note">Your form has been submitted successfully</p>
-      <button class="ok_btn" >OK</button>
-    </div>
-  </dialog>
-  <script src="js/validation.js"></script>
-  <script src="js/table.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/submitConfirmation.js"></script>
-</body>
-
+    <!-- SUCCESSFULL SUBMISSION MESSAGE PAGE -->
+    <dialog class="success_msg">
+      <div class="success_msg_container">
+        <h2 class="success_msg_head">FORM SUBMITTED SUCCESSFULLY!!</h2>
+        <p class="success_msg_note">
+          Your form has been submitted successfully
+        </p>
+        <button class="ok_btn">OK</button>
+      </div>
+    </dialog>
+    <script src="js/validation.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/submitConfirmation.js"></script>
+  </body>
 </html>
