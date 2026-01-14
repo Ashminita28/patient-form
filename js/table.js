@@ -10,7 +10,7 @@ function createRecord(){
         diseases.push(c.value);
         });
     const exercise=document.querySelector('input[name="exercise"]:checked');
-    console.log(exercise.value);
+    // console.log(exercise.value);
     
     const record={
         fullName:fullName.value,
