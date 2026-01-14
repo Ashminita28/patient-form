@@ -23,6 +23,7 @@ body{
 
 .main{
     margin: 0 auto;
+    width: 50%;
     max-width: 800px;
     background: #ffffff;
     border-radius: 24px;
@@ -227,6 +228,9 @@ textarea{
     
 
     /* form responsiveness */
+    .main{
+        width: 100%;
+    }
     .form{
         margin-bottom:32px;
     }
@@ -245,7 +249,7 @@ textarea{
     .checkbox-group{
         
         gap:12px;
-    padding:18px 20px;
+        padding:18px 20px;
 
     }
 }
@@ -257,6 +261,9 @@ textarea{
     }
 
     /* form responsiveness */
+    .main{
+        width: 100%;
+    }
     .form{
         margin-bottom:32px;
     }
