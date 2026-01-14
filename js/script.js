@@ -1,10 +1,12 @@
-const openModalBtn=document.querySelector(".btn");
+
+
 const successMsg=document.querySelector(".success_msg");
 
-openModalBtn.addEventListener("click",function(){
-  if(!validateAll()){
-        alert("FIX VALIDATION ERROR");
+document.getElementById('patientForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!validateAll()){
         const firstError=document.querySelector(".error");
+        alert('Fix validation error');
         if(firstError){
           firstError.scrollIntoView({
             behavior:"smooth",
@@ -12,9 +14,13 @@ openModalBtn.addEventListener("click",function(){
           });
           firstError.focus();
         }
-        else{
-          successMsg.showModal();
-        }
-        // return;
+        return;
     }
-})
+    createRecord();
+
+    successMsg.showModal();
+    
+  });
+
+  
+

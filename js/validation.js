@@ -2,18 +2,13 @@ document.getElementById("fullName").addEventListener("input", validateName);
 document.getElementById("dob").addEventListener("change", validateDate);
 document.getElementById("email").addEventListener("input", validateEmail);
 document.getElementById("phone").addEventListener("input", validatePhone);
-document.getElementById("gender").addEventListener("change", validateGender);
 document.getElementById("address").addEventListener("input", validateAddress);
 document.getElementById("height").addEventListener("input", validateHeight);
 document.getElementById("weight").addEventListener("input", validateWeight);
 
-// document.getElementById("bloodPressure").addEventListener("input",validateBloodpressure);
-// document.getElementById("bloodPressure").addEventListener("input",validateBloodtemp);
-document
-  .getElementById("bloodType")
-  .addEventListener("change", validateBloodtype);
-// document.getElementById("dietType").addEventListener("change",validateDiettype);
-document.getElementById("allergies").addEventListener("input",validateAllergy);
+document.getElementById("bloodPressure").addEventListener("input",validateBloodpressure);
+document.getElementById("bloodTempreture").addEventListener("input",validateBloodtemp);
+document.getElementById("bloodType").addEventListener("change", validateBloodtype);
 document.getElementById("sleepHours").addEventListener("input",validateSleephours);
 
 document.getElementsByName("disease").forEach((c) => {
@@ -23,9 +18,9 @@ document.getElementsByName("exercise").forEach((r) => {
   r.addEventListener("change", validateExercise);
 });
 
-// document.getElementById("medication").addEventListener("input",validateCurrentmedication);
 document.getElementById("privacy").addEventListener("change", validatePrivacy);
 
+// VALIDATE NAME INPUT FIELD
 function validateName() {
   const val = fullName.value.trim();
   const nameError = document.getElementById("errorName");
@@ -41,6 +36,8 @@ function validateName() {
   return true;
 }
 
+
+// VALIDATE DATE INPUT FIELD
 function validateDate() {
   let dobError = document.getElementById("errorDob");
   const today = new Date().toISOString().split("T")[0];
@@ -67,6 +64,8 @@ function validateDate() {
   return true;
 }
 
+
+// VALIDATE EMAIL INPUT FIELD
 function validateEmail() {
   let emailError = document.getElementById("errorEmail");
   const ePattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -84,6 +83,8 @@ function validateEmail() {
   return true;
 }
 
+
+// VALIDATE PHONE INPUT FIELD
 function validatePhone() {
   let phoneError = document.getElementById("errorPhone");
   const pval = phone.value.trim();
@@ -94,14 +95,15 @@ function validatePhone() {
     phoneError.textContent = "*Phone number required";
     return false;
   }
-  // if (!/^d{10}$/.test(phone)) {
-  //   phoneError.textContent = "*digits only";
-  //   return false;
-  // }
+  if (!isNaN(pval)) {
+    phoneError.textContent = "*digits only";
+    return false;
+  }
   phoneError.textContent = "";
   return true;
 }
 
+// VALIDATE ADDRESS INPUT FIELD
 function validateAddress() {
   let addressError = document.getElementById("errorAddress");
   const aval = address.value.trim();
@@ -113,16 +115,8 @@ function validateAddress() {
   return true;
 }
 
-function validateGender() {
-  let genderError = document.getElementById("errorGender");
-  if (gender === "") {
-    genderError.textContent = "*gender required";
-    return false;
-  }
-  genderError.textContent = "";
-  return true;
-}
 
+// VALIDATE HEIGHT INPUT FIELD
 function validateHeight() {
   let heightError = document.getElementById("errorHeight");
   const hval = height.value;
@@ -138,6 +132,7 @@ function validateHeight() {
   return true;
 }
 
+// VALIDATE WEIGHT INPUT FIELD
 function validateWeight() {
   let weightError = document.getElementById("errorWeight");
   const wval = weight.value;
@@ -149,11 +144,12 @@ function validateWeight() {
     weightError.textContent = "* weigth must be between 30 to 200";
     return false;
   }
-
   weightError.textContent = "";
   return true;
 }
 
+
+//VALIDATE DROP-DOWN INPUT FIELD
 function validateBloodtype() {
   let bloodError = document.getElementById("errorBlood");
   if (bloodType === "") {
@@ -164,16 +160,45 @@ function validateBloodtype() {
   return true;
 }
 
-// function validateDiettype(){
-  
-// }
+ // VALIDATE BLOODPRESSURE INPUT FIELD
 
-function validateAllergy(){
-   
+function validateBloodpressure(){
+  let pressureError=document.getElementById("errorPressure");
+  const bpval=bloodPressure.value;
+  if(bpval<70 || bpval>250){
+    pressureError.textContent="*Blood Pressure must be between (70-250 mmHg)"
+    return false;
+  }
+  pressureError.textContent="";
+  return true;
 }
+
+// VALIDATE BLOOD TEMP. INPUT FIELD
+function validateBloodtemp(){
+  let tempError=document.getElementById("errorTemp");
+  const btval=bloodTempreture.value;
+  if(btval<30 || btval>45){
+    tempError.textContent="*Blood temprature must be between (30 - 45 degree celcius)"
+    return false;
+  }
+  tempError.textContent=" ";
+  return true;
+}
+
+// VALIDATE SLEEPHOURS INPUT FIELD
 function validateSleephours(){
-    
+   let sleepError=document.getElementById("errorSleep");
+   const sval=sleepHours.value;
+   if(sval<0 || sval>24){
+    sleepError.textContent="*Sleep hour must be betwwen 0 to 24 hours";
+    return false;
+   }
+   sleepError.textContent="";
+   return true;
 }
+
+// VALIDATE CHECKBOX INPUT FIELD
+
 function validateDisease() {
   let diseaseError = document.getElementById("errorDisease");
   const checks = document.getElementsByName("disease");
@@ -188,6 +213,9 @@ function validateDisease() {
   diseaseError.textContent = "";
   return true;
 }
+
+// VALIDATE RADIO INPUT FIELD
+
 function validateExercise() {
   let exerciseError = document.getElementById("errorExercise");
   const radios = document.getElementsByName("exercise");
@@ -203,26 +231,19 @@ function validateExercise() {
   return true;
 }
 
-// function validateCurrentmedication(){
 
-// }
-
+// VALIDATE PRIVACY INPUT FIELD
 function validatePrivacy() {
   let privacyError = document.getElementById("errorPrivacy");
   if (!privacy.checked) {
-    alert("You must agree to the privacy policy");
+    privacyError.textContent="please agree to the privacy policy";
     return false;
   }
   privacyError.textContent = "";
   return true;
 }
 
-const data={};
-data.fullName=fullName;
-
-console.log(data);
-
 function validateAll() {
-  return (validateName() && validateDate() && validateAddress() && validateEmail() && validatePhone() && validateGender() &&  validateHeight() && validateWeight()
+  return (validateName() && validateDate() && validateAddress() && validateEmail() && validatePhone()  &&  validateHeight() && validateWeight()
 && validateBloodtype() && validateDisease() && validateExercise() && validatePrivacy());
 }
