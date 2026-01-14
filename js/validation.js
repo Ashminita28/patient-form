@@ -95,10 +95,10 @@ function validatePhone() {
     phoneError.textContent = "*Phone number required";
     return false;
   }
-  if (!isNaN(pval)) {
-    phoneError.textContent = "*digits only";
-    return false;
-  }
+  // if (!isNaN(pval)) {
+  //   phoneError.textContent = "*digits only";
+  //   return false;
+  // }
   phoneError.textContent = "";
   return true;
 }
