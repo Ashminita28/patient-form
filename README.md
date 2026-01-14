@@ -1,21 +1,35 @@
-# **PATIENT HEALTH FORM**
+# PATIENT HEALTH FORM
 
-**Overview:**
-The Patient Health Form application allows patients to securely submit personal and health-related information online.
-The data can be further used for hospital records,appointments ,or evaluation workflows.
+A responsive **Patient Health Form** built using **HTML, CSS, and JavaScript**.
+This project allows users to enter patient health details with proper validation and displays the data on table.
 
-**Features:**
-->Collects patient personal data.
-->Stores Medical history.
+## Features
+-Client-side form validation.
+-Dynamic data display in a table.
+-Edit & delete patient records.
+-Clean and responsive UI.
 
-**Technology Used:**
-HTML
-CSS
+
+## Tech Stack
+-**HTML**-Structure of the form and table.
+-**CSS**-Styling and responsive layout.
+-**JavaScript**-Form validation,DOM manipulation.
 JavaScript
 
-**Project Setup:**
-git clone:https://github.com/Ashminita28/patient-form
+
+## Project Setup
+**1.Create a folder**
 
 
-**Live Demo:**
+**2.Clone the repository**
+```
+git clone
+https://github.com/Ashminita28/patient-form
+```
+**3.Open index.html in your browser**
+
+
+## Live Demo
+```
 https://patient-form-tau.vercel.app/
+```
