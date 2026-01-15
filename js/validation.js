@@ -5,19 +5,10 @@ document.getElementById("phone").addEventListener("input", validatePhone);
 document.getElementById("address").addEventListener("input", validateAddress);
 document.getElementById("height").addEventListener("input", validateHeight);
 document.getElementById("weight").addEventListener("input", validateWeight);
-
-document
-  .getElementById("bloodPressure")
-  .addEventListener("input", validateBloodpressure);
-document
-  .getElementById("bloodTempreture")
-  .addEventListener("input", validateBloodtemp);
-document
-  .getElementById("bloodType")
-  .addEventListener("change", validateBloodtype);
-document
-  .getElementById("sleepHours")
-  .addEventListener("input", validateSleephours);
+document.getElementById("bloodPressure").addEventListener("input", validateBloodpressure);
+document.getElementById("bloodTempreture").addEventListener("input", validateBloodtemp);
+document.getElementById("bloodType").addEventListener("change", validateBloodtype);
+document.getElementById("sleepHours").addEventListener("input", validateSleephours);
 
 document.getElementsByName("disease").forEach((c) => {
   c.addEventListener("change", validateDisease);
@@ -25,8 +16,6 @@ document.getElementsByName("disease").forEach((c) => {
 document.getElementsByName("exercise").forEach((r) => {
   r.addEventListener("change", validateExercise);
 });
-
-
 document.getElementById("privacy").addEventListener("change", validatePrivacy);
 
 
@@ -81,12 +70,12 @@ function validateDate() {
 
 // VALIDATE EMAIL INPUT FIELD
 function validateEmail() {
-  const emval = email.value.trim();
+const emval = email.value.trim();
 const emailError = document.getElementById("errorEmail");
 
   const ePattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emval) {
-    emailError.textContent = "* Email required";
+    emailError.textContent = "*Email required";
     return false;
   }
   if (!ePattern.test(emval)) {
@@ -122,7 +111,7 @@ function validateAddress() {
   const aval = address.value.trim();
 const addressError = document.getElementById("errorAddress");
   if (!aval) {
-    addressError.textContent = "Address required";
+    addressError.textContent = "*Address required";
     return false;
   }
   addressError.textContent = "";
@@ -134,11 +123,11 @@ function validateHeight() {
   const heightError = document.getElementById("errorHeight");
 const hval = height.value;
   if (hval == "") {
-    heightError.textContent = "Height required";
+    heightError.textContent = "*Height required";
     return false;
   }
   if (hval < 100 || hval > 250) {
-    heightError.textContent = "* height must be between 100 to 250";
+    heightError.textContent = "*Height must be between 100 to 250";
     return false;
   }
   heightError.textContent = "";
@@ -149,12 +138,13 @@ const hval = height.value;
 function validateWeight() {
   const weightError = document.getElementById("errorWeight");
 const wval = weight.value;
+console.log(wval);
   if (!wval) {
-    weightError.textContent = "Weight required";
+    weightError.textContent = "*Weight required";
     return false;
   }
   if (wval < 30 || wval > 200) {
-    weightError.textContent = "* weigth must be between 30 to 200";
+    weightError.textContent = "*Weigth must be between 30 to 200";
     return false;
   }
   weightError.textContent = "";
@@ -162,9 +152,10 @@ const wval = weight.value;
 }
 
 //VALIDATE DROP-DOWN INPUT FIELD
+
 function validateBloodtype() {
   const bloodError = document.getElementById("errorBlood");
-  if (bloodType === "") {
+  if (bloodType.value==="") {
     bloodError.textContent = "*Select blood group";
     return false;
   }
@@ -221,7 +212,7 @@ function validateDisease() {
     if (r.checked) checked++;
   });
   if (checked === 0) {
-    diseaseError.textContent = "*select at least one";
+    diseaseError.textContent = "*Select at least one";
     return false;
   }
   diseaseError.textContent = "";
@@ -240,7 +231,7 @@ function validateExercise() {
     if (r.checked) selected = true;
   });
   if (!selected) {
-    exerciseError.textContent = "select at least one";
+    exerciseError.textContent = "*Select at least one";
     return false;
   }
   exerciseError.textContent = "";
@@ -252,7 +243,7 @@ function validatePrivacy() {
 const privacyError = document.getElementById("errorPrivacy");
 
   if (!privacy.checked) {
-    privacyError.textContent = "* please agree to the privacy policy";
+    privacyError.textContent = "*Please agree to the privacy policy";
     return false;
   }
   privacyError.textContent = "";

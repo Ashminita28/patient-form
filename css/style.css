@@ -245,12 +245,9 @@ textarea{
     .fields{
         grid-template-columns: 1fr;
     }
-
     .checkbox-group{
-        
-        gap:12px;
-        padding:18px 20px;
-
+        gap:5px;
+        width:100%;
     }
 }
 
@@ -279,10 +276,9 @@ textarea{
     .fields{
         grid-template-columns: 1fr;
     }
-    .checkbox-group{
-        gap:10px;
-        padding:11px 15px;
-
+    .checkbox-group{  
+        gap:5px;
+        width:100%;
     }
 
 }
