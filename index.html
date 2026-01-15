@@ -198,48 +198,46 @@
             <div class="fields">
               <div class="input-field">
                 <label>*Chronic Diseases</label>
-
                 <div class="checkbox-group">
                   <input type="checkbox" name="disease" value="heart" />
                   <label>Heart</label>
                   <input type="checkbox" name="disease" value="diabetes" />
                   <label>Diabetes</label>
-
                   <input type="checkbox" name="disease" value="cancer" />
                   <label>Cancer</label>
                   <input type="checkbox" name="disease" value="hypertension" />
-                  <label>Hypertension</label>
-
-                  <span class="error" id="errorDisease"></span>
+                  <label>BP</label>
                 </div>
+                <span class="error" id="errorDisease"></span>
               </div>
 
               <div class="input-field">
                 <label>*Exercise Frequency</label>
                 <div class="checkbox-group">
-                  <label
-                    ><input
+                  <input
                       type="radio"
                       name="exercise"
-                      value="daily"
-                    />Daily</label
+                      value="daily"/>
+                  <label>Daily</label
                   >
-                  <label
-                    ><input
+                  <input
                       type="radio"
                       name="exercise"
                       value="weekly"
-                    />weekly</label
-                  >
+                    />
                   <label
-                    ><input
+                    >weekly</label
+                  >
+                  <input
                       type="radio"
                       name="exercise"
                       value="never"
-                    />Never</label
-                  >
-                  <span class="error" id="errorExercise"></span>
+                    />
+                  <label>Never</label>
+                  <input type="radio" name="exercise" value="twice"/>
+                  <label>Twice</label>
                 </div>
+                <span class="error" id="errorExercise"></span>
               </div>
             </div>
 
@@ -263,8 +261,8 @@
             <div class="checkbox-group">
               <input type="checkbox" id="privacy" />
               <label for="privacy">I agree to the privacy policy</label>
-              <span class="error" id="errorPrivacy"></span>
             </div>
+            <span class="error" id="errorPrivacy"></span>
             <button id="submitBtn" type="submit" class="btn">Submit</button>
           </div>
         </form>
